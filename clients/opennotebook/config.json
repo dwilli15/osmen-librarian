@@ -1,0 +1,15 @@
+{
+  "librarian_connection": {
+    "type": "local_process",
+    "command": "python",
+    "args": ["src/mcp_server.py"],
+    "cwd": "D:/temp/Repo_Staging/librarian/librarian_repo",
+    "env": {
+      "PYTHONPATH": "src"
+    }
+  },
+  "features": {
+    "lateral_thinking": true,
+    "auto_ingest": false
+  }
+}
