@@ -1,0 +1,6 @@
+chromadb
+sentence-transformers
+torch
+numpy
+langchain-text-splitters
+langchain-community
