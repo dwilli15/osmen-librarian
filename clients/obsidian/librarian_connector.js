@@ -7,7 +7,9 @@
  * 3. Configure the `LIBRARIAN_PATH` below to point to your librarian_repo.
  */
 
-const LIBRARIAN_PATH = "D:/temp/Repo_Staging/librarian/librarian_repo"; // UPDATE THIS PATH
+// UPDATE THIS PATH to your osmen-librarian installation
+const LIBRARIAN_PATH = "/path/to/osmen-librarian";
+// Windows: .venv/Scripts/python.exe | Linux/Mac: .venv/bin/python
 const PYTHON_CMD = `${LIBRARIAN_PATH}/.venv/Scripts/python.exe`;
 const SCRIPT_PATH = `${LIBRARIAN_PATH}/src/rag_manager.py`;
 

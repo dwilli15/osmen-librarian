@@ -1,44 +1,23 @@
 import os
 
-# Configuration
-SOURCE_DIR = r"c:\Users\armad\OneDrive\Documents\Professional\MLTS\Timeline\Fall 2025\Courses\Healthy Boundaries\Projects\Final Project"
-DEST_DIR = os.path.join(SOURCE_DIR, "hb_final", "2_sources_md")
+# Configuration - UPDATE THESE PATHS for your environment
+SOURCE_DIR = os.environ.get("LIBRARIAN_SOURCE_DIR", "./source_documents")
+DEST_DIR = os.environ.get("LIBRARIAN_DEST_DIR", "./data")
 
+# Example source configuration - customize for your documents
 sources = [
     {
-        "filename": "Dao of Complexity - Unknown.txt",
-        "out_name": "Dao_of_Complexity.md",
+        "filename": "example_document.txt",
+        "out_name": "Example_Document.md",
         "frontmatter": {
-            "title": "The Dao of Complexity",
-            "author": "Jean Boulton",
+            "title": "Example Document",
+            "author": "Author Name",
             "year": "2024",
             "source_type": "book",
-            "tags": ["complexity", "daoism", "process-philosophy", "science"]
+            "tags": ["example", "template"]
         }
     },
-    {
-        "filename": "Shared Wisdom - Pamela Cooper-White.txt",
-        "out_name": "Shared_Wisdom.md",
-        "frontmatter": {
-            "title": "Shared Wisdom: Use of the Self in Pastoral Care and Counseling",
-            "author": "Pamela Cooper-White",
-            "year": "2024",
-            "edition": "20th Anniversary Revised",
-            "source_type": "book",
-            "tags": ["pastoral-care", "intersubjectivity", "transference", "psychology"]
-        }
-    },
-    {
-        "filename": "Sacred Wounds - Teresa B. Pasquale.txt",
-        "out_name": "Sacred_Wounds.md",
-        "frontmatter": {
-            "title": "Sacred Wounds: A Path to Healing from Spiritual Trauma",
-            "author": "Teresa B. Pasquale",
-            "year": "2015",
-            "source_type": "book",
-            "tags": ["trauma", "healing", "spiritual-abuse", "ministry"]
-        }
-    }
+    # Add your sources here following the pattern above
 ]
 
 def create_frontmatter(metadata):

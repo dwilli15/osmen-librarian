@@ -1,7 +1,9 @@
 import os
 from pypdf import PdfReader
 
+
 def extract_text_from_pdf(pdf_path, output_path):
+    """Extract text from a PDF file and save to output path."""
     try:
         reader = PdfReader(pdf_path)
         text = ""
@@ -14,15 +16,24 @@ def extract_text_from_pdf(pdf_path, output_path):
     except Exception as e:
         print(f"Error extracting text from {pdf_path}: {e}")
 
-base_dir = r"c:\Users\armad\OneDrive\Documents\Professional\MLTS\Timeline\Fall 2025\Courses\Healthy Boundaries\Projects\Final Project"
-output_dir = os.path.join(base_dir, "hb_final", "2_sources_md")
 
+# Configuration - UPDATE THESE PATHS for your environment
+# Or set via environment variables: LIBRARIAN_PDF_DIR, LIBRARIAN_OUTPUT_DIR
+base_dir = os.environ.get("LIBRARIAN_PDF_DIR", "./source_pdfs")
+output_dir = os.environ.get("LIBRARIAN_OUTPUT_DIR", "./data")
+
+# Example PDF configuration - add your PDFs here
 pdfs = [
-    ("__Cortina-Liotti_Attachment-Intersubjectivity_2010.pdf", "Cortina_Liotti.md"),
-    ("__Gillespie-Cornish_Dialogical-Intersubjectivity.pdf", "Gillespie_Cornish.md")
+    # ("your_document.pdf", "Output_Name.md"),
 ]
 
-for pdf_file, md_file in pdfs:
-    pdf_path = os.path.join(base_dir, pdf_file)
-    md_path = os.path.join(output_dir, md_file)
-    extract_text_from_pdf(pdf_path, md_path)
+
+if __name__ == "__main__":
+    if not pdfs:
+        print("No PDFs configured. Edit this file to add your PDF sources.")
+        print("Example: pdfs = [('document.pdf', 'Document.md')]")
+    else:
+        for pdf_file, md_file in pdfs:
+            pdf_path = os.path.join(base_dir, pdf_file)
+            md_path = os.path.join(output_dir, md_file)
+            extract_text_from_pdf(pdf_path, md_path)
